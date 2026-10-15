@@ -5,33 +5,6 @@ K matters a lot:
 K too small (e.g., 1): the model is sensitive to noise and outliers (overfitting).
 K too large: the model gets too “blurry” and ignores local patterns (underfitting).
 '''
-
-import matplotlib.pyplot as plt
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-
-
-k_values = range(1,21)
-scores = []
-
-for k in k_values:
-    knn = KNeighborsClassifier(n_neighbors = k)
-    knn.fit(X_train, y_train)
-    scores.append(knn.score(X_test, y_test))
-
-
-plt.plot(k_values, scores, marker="o")
-plt.xlabel("K (number of neighbors)")
-plt.ylabel("Accuracy")
-plt.title("Finding the best K")
-plt.show()
-
-best_k = k_values[scores.index(max(scores))]
-print("Best K:", best_k)
-
-
-'''
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
@@ -65,4 +38,3 @@ plt.show()
 best_k = k_values[scores.index(max(scores))]
 print("Best K:", best_k)
 
-'''
